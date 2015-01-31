@@ -15,16 +15,19 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class Chassis extends Subsystem
 {
 	SpeedController leftMotor, rightMotor;
-	RobotDrive drive;
+	RobotDrive drive; //drive command- import RobotDrive from wpilib
 	Encoder encoderLeft;
 	Encoder encoderRight;
 	
 	public Chassis()
 	{
 		super();
+		//# is written on the bottom on the CANTalon and configured in Roborio
     	leftMotor = new CANTalon(12);
     	rightMotor = new CANTalon(14);
     	drive = new RobotDrive(leftMotor, rightMotor);
+    	drive.setSafetyEnabled(true); // if code goes too long this will stop the code
+    	drive.setExpiration(1); // time until code stops?
     	//Encoder encoderLeft;
     	encoderLeft = new Encoder(0,1,false,Encoder.EncodingType.k4X);
     	encoderRight = new Encoder(2,3,false,Encoder.EncodingType.k4X);

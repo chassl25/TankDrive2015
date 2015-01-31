@@ -15,9 +15,11 @@ public class DriveWithJoystick extends Command {
 
     protected void initialize() {}
 
+    //Always running
     protected void execute()
     {
     	Robot.chassis.driveWithJoystick(Robot.oi.getLeftJoystick(),Robot.oi.getRightJoystick());
+    	
     }
 
     protected boolean isFinished()
